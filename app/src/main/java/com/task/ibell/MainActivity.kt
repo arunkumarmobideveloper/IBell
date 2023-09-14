@@ -19,5 +19,6 @@ class MainActivity : AppCompatActivity() {
 
         val apolloClientMethod = ApolloClient()
         apolloClientMethod.initApolloClient("text implementation")
+
     }
 }
