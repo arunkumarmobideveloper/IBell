@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'com.apollographql.apollo3'
 }
 
 android {
@@ -12,6 +13,11 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+    }
+    apollo {
+        service("service") {
+            packageName.set("com.example.rocketreserver")
+        }
     }
 
     buildTypes {
@@ -38,7 +44,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation "com.apollographql.apollo:apollo-runtime:2.4.6"
-    implementation "com.apollographql.apollo:apollo-coroutines-support:2.4.6"
-
+// Apollo GraphQL
+    implementation 'com.apollographql.apollo:apollo-runtime:2.5.4'
+    // optional: for coroutines support
+    implementation("com.apollographql.apollo3:apollo-runtime:3.8.2")
 }
