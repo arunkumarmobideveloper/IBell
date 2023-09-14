@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id("com.apollographql.apollo3").version("3.8.2")
 }
 
 android {
@@ -38,7 +39,15 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    implementation "com.apollographql.apollo:apollo-runtime:2.4.6"
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation "com.apollographql.apollo:apollo-runtime:2.5.10"
     implementation "com.apollographql.apollo:apollo-coroutines-support:2.4.6"
+    implementation("com.apollographql.apollo3:apollo-runtime")
+    implementation("androidx.security:security-crypto:1.1.0-alpha04")
+}
 
+apollo {
+    service("service") {
+        packageName.set("com.task.ibell")
+    }
 }
