@@ -1,9 +1,13 @@
 package com.task.ibell
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+
+
 import com.task.ibell.databinding.ActivityMainBinding
 import com.task.ibell_lib_sdk.apolloclient.ApolloClient
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,8 +21,12 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
 
-        val apolloClientMethod = ApolloClient()
+         val apolloClientMethod = ApolloClient()
         apolloClientMethod.initApolloClient("text implementation")
+
+
+
+
 
     }
 }
