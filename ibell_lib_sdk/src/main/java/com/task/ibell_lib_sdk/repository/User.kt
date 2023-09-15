@@ -1,4 +1,4 @@
-package com.task.ibell_lib_sdk.apolloclient
+package com.task.ibell_lib_sdk.repository
 
 import android.content.Context
 import android.content.SharedPreferences

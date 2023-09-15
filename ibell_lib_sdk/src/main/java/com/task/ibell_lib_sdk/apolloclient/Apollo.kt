@@ -3,7 +3,7 @@ package com.task.ibell_lib_sdk.apolloclient
 import android.content.Context
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.network.okHttpClient
-
+import com.task.ibell_lib_sdk.repository.User
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
