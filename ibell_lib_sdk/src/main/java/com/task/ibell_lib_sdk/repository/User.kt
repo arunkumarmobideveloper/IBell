@@ -3,21 +3,20 @@ package com.task.ibell_lib_sdk.repository
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKeys
+import androidx.security.crypto.MasterKeys.*
 
 object User {
     private const val KEY_TOKEN = "TOKEN"
     private fun preferences(context: Context): SharedPreferences {
-        val masterKeyAlias: String = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC)
+        val masterKeyAlias: String = getOrCreate(AES256_GCM_SPEC)
 
-        val sharedPreferences: SharedPreferences = EncryptedSharedPreferences.create(
+        return EncryptedSharedPreferences.create(
             "secret_shared_prefs",
             masterKeyAlias,
             context,
             EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
             EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
         )
-        return sharedPreferences
     }
 
     fun getToken(context: Context): String? {

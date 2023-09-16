@@ -1,12 +1,12 @@
 package com.task.ibell.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 
 import androidx.recyclerview.widget.LinearLayoutManager
 
@@ -14,12 +14,12 @@ import com.example.rocketreserver.LaunchListAdapter
 
 import com.task.ibell.LaunchListQuery
 import com.task.ibell.databinding.LaunchListFragmentBinding
-import com.task.ibell_lib_sdk.apolloclient.ApolloClient
+import com.task.ibell_lib_sdk.apolloclient.ApolloClientConfiguration
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.launch
 
 class LaunchListFragment : Fragment() {
     private lateinit var binding: LaunchListFragmentBinding
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -29,6 +29,7 @@ class LaunchListFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -47,15 +48,12 @@ class LaunchListFragment : Fragment() {
 
 
 
-        lifecycleScope.launchWhenResumed {
-            var cursor: String? = null
-            val apolloClientMethod = ApolloClient()
-            val response = apolloClientMethod.apolloClientListApiCall(requireContext())
-
+        lifecycleScope.launch {
+            ApolloClientConfiguration().apolloClientInitialization(requireContext())
+            val response = ApolloClientConfiguration().apolloClientLaunchListApiCall(requireContext())
             if (response != null) {
                 launches.addAll(response)
                 adapter.notifyDataSetChanged()
-
             }
             adapter.onEndOfListReached = null
             channel.close()
