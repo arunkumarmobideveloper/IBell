@@ -53,6 +53,9 @@ dependencies {
     testImplementation("com.apollographql.apollo3:apollo-mockserver:3.8.2")
    implementation("com.apollographql.apollo3:apollo-mockserver:3.8.2")
     testImplementation("com.apollographql.apollo3:apollo-testing-support:3.8.2")
+    testImplementation("com.apollographql.apollo3:apollo-testing-support-jvm:3.8.2")
+
+
 
 
 }

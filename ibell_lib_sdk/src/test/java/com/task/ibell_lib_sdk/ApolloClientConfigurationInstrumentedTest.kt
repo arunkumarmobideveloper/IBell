@@ -1,6 +1,5 @@
 package com.task.ibell_lib_sdk
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.api.Optional
 import com.apollographql.apollo3.network.okHttpClient
@@ -16,7 +15,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 
-@RunWith(AndroidJUnit4::class)
 class ApolloClientConfigurationInstrumentedTest  {
     private lateinit var apolloClient: ApolloClient
 
