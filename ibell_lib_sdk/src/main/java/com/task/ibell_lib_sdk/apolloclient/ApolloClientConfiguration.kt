@@ -55,9 +55,11 @@ class ApolloClientConfiguration : ApolloClientsCallbacks {
 
             val launch = response.data?.launches?.launches
             if (launch == null || response.hasErrors()) {
+                //Error state can be fetched through Observer/Flow in User Interface to make event driven approach-TODO: [Further enhancement]
                 GraphQLState.Error(response.errors?.get(0)!!.message)
                 return null
             }
+            //Success state can be fetched through Observer/Flow in User Interface to update asynchronously -TODO: [Further enhancement]
             GraphQLState.Success(response)
             return launch.filterNotNull()
         } catch (_: ApolloException) {
