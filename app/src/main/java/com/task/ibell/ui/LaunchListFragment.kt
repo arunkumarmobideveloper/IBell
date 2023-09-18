@@ -58,14 +58,5 @@ class LaunchListFragment : Fragment() {
             adapter.onEndOfListReached = null
             channel.close()
         }
-
-
-       /* adapter.onItemClicked = { launch ->
-            findNavController().navigate(
-               // LaunchListFragmentDirections.openLaunchDetails()
-
-                LaunchListFragmentDirections.openLaunchDetails(lanuchID = launch.id)
-            )
-        }*/
     }
 }

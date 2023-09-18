@@ -3,6 +3,7 @@ package com.task.ibell_lib_sdk
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.api.Optional
 import com.apollographql.apollo3.network.okHttpClient
+import com.task.ibell.LaunchDetailsQuery
 import com.task.ibell.LaunchListQuery
 import com.task.ibell_lib_sdk.Utils.Constants.BASE_URL
 import com.task.ibell_lib_sdk.Utils.Constants.HTTPS
@@ -28,12 +29,20 @@ class ApolloClientConfigurationInstrumentedTest  {
             .build()
     }
     @Test
-    fun launchTestGraphQLQuery() = runBlocking {
+    fun launchListTestGraphQLQuery() = runBlocking {
         val response =
             apolloClient.query(LaunchListQuery(Optional.Present("")))
                 .execute()
         val launch = response.data?.launches?.launches
         assertEquals(launch?.get(0).toString(),  MOCK_DATA_JUNIT_TEST_CASE)
         assertEquals(launch?.get(1).toString(),  MOCK_DATA_JUNIT_TEST_CASE)
+    }
+    @Test
+    fun launchDetailTestGraphQLQuery() = runBlocking {
+        val response = apolloClient.query(LaunchDetailsQuery("110"))
+            .execute()
+        val launchDetail = response.data?.launch
+        assertEquals(launchDetail,  110)
+        assertEquals(launchDetail,  114)
     }
 }
