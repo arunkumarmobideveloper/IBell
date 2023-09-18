@@ -14,6 +14,7 @@ import com.task.ibell.LaunchListQuery
 import com.task.ibell_lib_sdk.Utils.Constants.BASE_URL
 import com.task.ibell_lib_sdk.Utils.Constants.HTTPS
 import com.task.ibell_lib_sdk.Utils.Constants.WEB_SOCKET_URL
+import com.task.ibell_lib_sdk.error_handling.GraphQLState
 import okhttp3.OkHttpClient
 
 class ApolloClientConfiguration : ApolloClientsCallbacks {
@@ -54,8 +55,10 @@ class ApolloClientConfiguration : ApolloClientsCallbacks {
 
             val launch = response.data?.launches?.launches
             if (launch == null || response.hasErrors()) {
+                GraphQLState.Error(response.errors?.get(0)!!.message)
                 return null
             }
+            GraphQLState.Success(response)
             return launch.filterNotNull()
         } catch (_: ApolloException) {
         }
