@@ -21,8 +21,9 @@ class ApolloClientConfiguration : ApolloClientsCallbacks {
     private var instance: ApolloClient? = null
 
     /*
-    * Apollo Client initialization by extending ApolloClient SDK class
+    * Apollo Client initialization
     * @Argument : Context
+    * @Type : ApolloClient
     * */
     override fun apolloClientInitialization(mContext: Context): ApolloClient {
         if (instance != null) {
