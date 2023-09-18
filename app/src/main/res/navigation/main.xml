@@ -19,13 +19,6 @@
         android:id="@+id/launch_details_fragment"
         android:name="com.task.ibell.ui.LaunchDetailsFragment"
         tools:layout="@layout/launch_details_fragment">
-        <argument
-            android:name="lanuchID"
-            app:argType="string"/>
-
-
-
-
     </fragment>
 
 </navigation>

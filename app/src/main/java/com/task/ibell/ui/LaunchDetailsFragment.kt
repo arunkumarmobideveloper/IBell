@@ -14,7 +14,6 @@ import com.task.ibell.databinding.LaunchDetailsFragmentBinding
 class LaunchDetailsFragment : Fragment() {
 
     private lateinit var binding: LaunchDetailsFragmentBinding
-    val args: LaunchDetailsFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +21,6 @@ class LaunchDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = LaunchDetailsFragmentBinding.inflate(inflater)
-
         return binding.root
     }
 

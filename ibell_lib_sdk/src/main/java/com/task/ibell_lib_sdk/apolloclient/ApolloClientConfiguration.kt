@@ -18,6 +18,11 @@ import okhttp3.OkHttpClient
 
 class ApolloClientConfiguration : ApolloClientsCallbacks {
     private var instance: ApolloClient? = null
+
+    /*
+    * Apollo Client initialization by extending ApolloClient SDK class
+    * @Argument : Context
+    * */
     override fun apolloClientInitialization(mContext: Context): ApolloClient {
         if (instance != null) {
             return instance as ApolloClient
@@ -35,18 +40,31 @@ class ApolloClientConfiguration : ApolloClientsCallbacks {
         return instance!!
     }
 
+    /*
+    * This method fetch all Launches List from the api through LaunchListQuery added in #graphql->graphql_schema folder
+    * @Argument : Context
+    * @Type : List<LaunchListQuery.Launch>
+    * */
     override suspend fun apolloClientLaunchListApiCall(context: Context): List<LaunchListQuery.Launch>? {
         try {
             val response =
                 apolloClientInitialization(context).query(LaunchListQuery(Optional.Present("")))
                     .execute()
             Log.d("TAG", "apolloClientApiCall: " + response.data)
-            return response.data?.launches?.launches?.filterNotNull()
+
+            val launch = response.data?.launches?.launches
+            if (launch == null || response.hasErrors()) {
+                return null
+            }
+            return launch.filterNotNull()
         } catch (_: ApolloException) {
         }
         return null
     }
-
+    /*
+     * This method fetch the detail of a particular launches from the list from the api through LaunchDetailQuery added in #graphql->graphql_schema folder
+     * @Arguments : Context,LaunchID
+     * */
     override suspend fun apolloClientLaunchDetailApiCall(
         context: Context,
         launchId: String

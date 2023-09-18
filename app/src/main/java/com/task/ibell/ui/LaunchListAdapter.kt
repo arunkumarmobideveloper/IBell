@@ -9,6 +9,10 @@ import com.task.ibell.LaunchListQuery
 import com.task.ibell.R
 import com.task.ibell.databinding.LaunchItemBinding
 
+/*
+*Display the Launches List in RecyclerView
+*@argument : launches: List<LaunchListQuery.Launch>
+* */
 class LaunchListAdapter(private val launches: List<LaunchListQuery.Launch>) :
     RecyclerView.Adapter<LaunchListAdapter.ViewHolder>() {
 
@@ -39,7 +43,7 @@ class LaunchListAdapter(private val launches: List<LaunchListQuery.Launch>) :
         }
 
         holder.binding.root.setOnClickListener {
-           // onItemClicked?.invoke(launch)
+            onItemClicked?.invoke(launch)
         }
     }
 }
