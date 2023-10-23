@@ -44,4 +44,10 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="lee_health">LEE HEALTH</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_data_connections">Data Connections</string>
+    <string name="menu_health_summary">Health Summary</string>
+    <string name="menu_insurance">Insurance</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_settings">Settings</string>
 </resources>
