@@ -17,14 +17,14 @@ import com.task.ibell.databinding.FragmentHomeBinding
 
 // HomeFragment.kt
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.fragment_top_view) {
 
     private lateinit var binding: FragmentHomeBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentHomeBinding.bind(view)
+        //binding = FragmentHomeBinding.bind(view)
 
         // Set up your ViewPager here...
 
@@ -43,7 +43,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         }*/
 
         // Styling the header title
-        styleHeaderText(binding.headerTitle)
+        //styleHeaderText(binding.headerTitle)
     }
 
     private fun styleHeaderText(textView: TextView) {
