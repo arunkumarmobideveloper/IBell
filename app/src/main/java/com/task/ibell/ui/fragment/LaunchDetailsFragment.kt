@@ -1,4 +1,4 @@
-package com.task.ibell.ui
+package com.task.ibell.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

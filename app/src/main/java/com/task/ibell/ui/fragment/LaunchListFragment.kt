@@ -1,4 +1,4 @@
-package com.task.ibell.ui
+package com.task.ibell.ui.fragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 
 import androidx.recyclerview.widget.LinearLayoutManager
-
-import com.example.rocketreserver.LaunchListAdapter
 
 import com.task.ibell.LaunchListQuery
 import com.task.ibell.databinding.LaunchListFragmentBinding

@@ -1,4 +1,4 @@
-package com.task.ibell.ui
+package com.task.ibell.ui.fragment
 
 import android.graphics.Color
 import android.graphics.Typeface
@@ -17,7 +17,7 @@ import com.task.ibell.databinding.FragmentHomeBinding
 
 // HomeFragment.kt
 
-class HomeFragment : Fragment(R.layout.fragment_top_view) {
+class HomeFragment : Fragment(R.layout.fragment_edit_profile) {
 
     private lateinit var binding: FragmentHomeBinding
 

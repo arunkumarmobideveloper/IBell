@@ -1,4 +1,4 @@
-package com.example.rocketreserver
+package com.task.ibell.ui.fragment
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
