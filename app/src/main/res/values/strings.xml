@@ -60,5 +60,33 @@
     <string name="menu_slideshow">Health Summary</string>
     <string name="menu_insurance">Insurance</string>
     <string name="bwell_sample">BWell Sample app</string>
+    <string name="email">Email</string>
+    <string name="sex">Sex</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="age">Age</string>
+    <string name="address">Address</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="logout">Log out</string>
+    <string name="save">Save</string>
+    <string name="fill_edit_profile">Help us provide you with more tailored insights by filling out more details about you.</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="date_of_birth_label">Date of Birth</string>
+    <string name="sex_assigned_at_birth">Sex Assigned at Birth</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="primary_address">Primary Address</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="enter_first_name">Enter your first name</string>
+    <string name="enter_last_name">Enter your last name</string>
+    <string name="enter_date_of_birth">Enter your Date of Birth</string>
+    <string name="enter_mobile_number">Enter your Mobile Number</string>
+    <string name="enter_primary_address">Enter your Primary Addressr</string>
+    <string name="enter_city">Enter your City</string>
+    <string name="enter_zipcode">Enter your Zipcode</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
