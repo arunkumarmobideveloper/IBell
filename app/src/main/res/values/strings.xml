@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IBell</string>
+    <string name="app_name">BWell</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -47,7 +47,18 @@
     <string name="menu_home">Home</string>
     <string name="menu_data_connections">Data Connections</string>
     <string name="menu_health_summary">Health Summary</string>
-    <string name="menu_insurance">Insurance</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_settings">Settings</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="menu_gallery">Data Connections</string>
+    <string name="menu_health_journey">Health Journey</string>
+    <string name="menu_slideshow">Health Summary</string>
+    <string name="menu_insurance">Insurance</string>
+    <string name="bwell_sample">BWell Sample app</string>
+
 </resources>

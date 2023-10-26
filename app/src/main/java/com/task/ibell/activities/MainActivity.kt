@@ -3,7 +3,7 @@ package com.task.ibell.activities
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.task.ibell.R
-import com.task.ibell.ui.HomeFragment
+import com.task.ibell.activities.ui.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
 
