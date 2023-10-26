@@ -21,7 +21,7 @@
         android:id="@+id/editProfileTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit Profile"
+        android:text="@string/edit_profile"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="#0076AB"
@@ -34,7 +34,7 @@
         android:id="@+id/helpTextTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Help us provide you with more tailored insights by filling out more details about you."
+        android:text="@string/fill_edit_profile"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/leftArrowImageView"
@@ -51,7 +51,7 @@
         android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/helpTextTextView">
-        <!-- First Name Label with Red "*" -->
+        <!-- First Name Label with Red " *" -->
         <LinearLayout
             android:id="@+id/firstNameLayout"
             android:layout_width="match_parent"
@@ -61,14 +61,14 @@
                 android:id="@+id/firstNameLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="First Name "
+                android:text="@string/first_name"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/redAsteriskTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -77,7 +77,9 @@
             android:id="@+id/firstNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your first name"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:hint="@string/enter_first_name"
             android:background="@android:color/transparent"
             android:textColor="#000000" />
     </LinearLayout>
@@ -93,7 +95,7 @@
         android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstNameSectionLayout">
-        <!-- Last Name Label with Red "*" -->
+        <!-- Last Name Label with Red " *" -->
         <LinearLayout
             android:id="@+id/lastNameLayout"
             android:layout_width="match_parent"
@@ -103,14 +105,14 @@
                 android:id="@+id/lastNameLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Last Name "
+                android:text="@string/last_name"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/lastnameredAsteriskTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -119,7 +121,9 @@
             android:id="@+id/lastNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your last name"
+            android:hint="@string/enter_last_name"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
             android:background="@android:color/transparent"
             android:textColor="#000000" />
     </LinearLayout>
@@ -135,7 +139,7 @@
         android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastNameSectionLayout">
-        <!-- dateofbirth Label with Red "*" -->
+        <!-- dateofbirth Label with Red " *" -->
         <LinearLayout
             android:id="@+id/dateofbirthLayout"
             android:layout_width="match_parent"
@@ -145,14 +149,14 @@
                 android:id="@+id/dateofbirthLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date of Birth "
+                android:text="@string/date_of_birth_label"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/dateofbirthredAsteriskTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -161,7 +165,9 @@
             android:id="@+id/dateofbirthEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter your Date of Birth"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:hint="@string/enter_date_of_birth"
             android:background="@android:color/transparent"
             android:textColor="#000000" />
     </LinearLayout>
@@ -177,26 +183,24 @@
         app:layout_constraintTop_toBottomOf="@+id/dateofbirthSectionLayout"
         android:padding="10dp"
         android:layout_margin="10dp">
-        <!-- Sex Assigned at Birth Label with Red "*" -->
+        <!-- Sex Assigned at Birth Label with Red " *" -->
         <LinearLayout
             android:id="@+id/sexAssignedAtBirthLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp">
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/sexAssignedAtBirthLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sex Assigned at Birth "
+                android:text="@string/sex_assigned_at_birth"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/redAsteriskSexAssignedAtBirthTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -221,26 +225,24 @@
         app:layout_constraintTop_toBottomOf="@+id/sexAssignedAtBirthSectionLayout"
         android:padding="10dp"
         android:layout_margin="10dp">
-        <!-- Phone number Label with Red "*" -->
+        <!-- Phone number Label with Red " *" -->
         <LinearLayout
             android:id="@+id/phonenumberLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp">
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/phonenumberLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mobile Number "
+                android:text="@string/mobile_number"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/redAsteriskphonenumberTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -250,8 +252,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/phonenumberLayout"
-            android:layout_marginTop="8dp"
-            android:hint="Enter your Mobile Number"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:hint="@string/enter_mobile_number"
             android:background="@android:color/transparent"
             android:textColor="#000000" />
         <!-- Receiver Symbol (ImageView) -->
@@ -263,7 +266,9 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_alignTop="@id/phonenumberLayout"
-        android:layout_marginEnd="16dp" ></ImageView>
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp">
+        </ImageView>
     </RelativeLayout>
 
     <!-- Primary Address Section with Blue Background -->
@@ -277,26 +282,24 @@
         app:layout_constraintTop_toBottomOf="@+id/phonenumberSectionLayout"
         android:padding="10dp"
         android:layout_margin="10dp">
-        <!-- Primary Address Label with Red "*" -->
+        <!-- Primary Address Label with Red " *" -->
         <LinearLayout
             android:id="@+id/primaryAddressLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp">
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/primaryAddressLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Primary Address "
+                android:text="@string/primary_address"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/redAsteriskprimaryAddressTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -305,9 +308,9 @@
             android:id="@+id/primaryAddressEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/phonenumberLayout"
-            android:layout_marginTop="8dp"
-            android:hint="Enter your Primary Address"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:hint="@string/enter_primary_address"
             android:background="@android:color/transparent"
             android:textColor="#000000" />
     </LinearLayout>
@@ -323,26 +326,24 @@
         app:layout_constraintTop_toBottomOf="@+id/primaryAddressSectionLayout"
         android:padding="10dp"
         android:layout_margin="10dp">
-        <!-- City Label with Red "*" -->
+        <!-- City Label with Red " *" -->
         <LinearLayout
             android:id="@+id/cityLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp">
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/cityLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="City "
+                android:text="@string/city"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/redAsteriskcityTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -351,9 +352,9 @@
             android:id="@+id/cityEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/phonenumberLayout"
-            android:layout_marginTop="8dp"
-            android:hint="Enter your City"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:hint="@string/enter_city"
             android:background="@android:color/transparent"
             android:textColor="#000000" />
     </LinearLayout>
@@ -363,12 +364,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="#F2FAFC"
         android:weightSum="4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/citySectionLayout"
-        android:padding="10dp"
-        android:layout_margin="10dp">
+        >
     <!-- State Section with Blue Background -->
     <LinearLayout
         android:id="@+id/stateSectionLayout"
@@ -376,28 +375,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#F2FAFC"
-        android:layout_weight="1"
+        android:layout_weight="2.6"
+        android:padding="10dp"
+        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent">
-        <!-- State Label with Red "*" -->
+        <!-- State Label with Red " *" -->
         <LinearLayout
             android:id="@+id/stateLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp">
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/stateLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="State "
+                android:text="@string/state"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/redAsteriskstateTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -415,7 +414,7 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="0.1" />
 
     <!-- Zipcode Section with Blue Background -->
     <LinearLayout
@@ -424,28 +423,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#F2FAFC"
-        android:layout_weight="2"
+        android:layout_weight="1.3"
+        android:padding="10dp"
+        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent">
-        <!-- zipcode Label with Red "*" -->
+        <!-- zipcode Label with Red " *" -->
         <LinearLayout
             android:id="@+id/zipcodeLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp">
+            android:orientation="horizontal">
             <TextView
                 android:id="@+id/zipcodeLabelTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Zipcode "
+                android:text="@string/zipcode"
                 android:textStyle="bold"
                 android:textColor="#000000" />
             <TextView
                 android:id="@+id/redAsteriskzipcodeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="*"
+                android:text=" *"
                 android:textStyle="bold"
                 android:textColor="#FF0000" />
         </LinearLayout>
@@ -454,15 +453,15 @@
             android:id="@+id/zipcodeEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/phonenumberLayout"
-            android:layout_marginTop="8dp"
-            android:hint="Enter your Zipcode"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:hint="@string/enter_zipcode"
             android:background="@android:color/transparent"
             android:textColor="#000000" />
     </LinearLayout>
     </LinearLayout>
 
-    <!-- Edit Profile Button -->
+    <!-- Save Button -->
     <FrameLayout
         android:id="@+id/frameLayoutLogout"
         android:layout_width="wrap_content"
@@ -475,7 +474,6 @@
         android:layout_margin="20dp"
         android:focusable="true"
         android:onClick="onSaveProfileClick">
-
         <TextView
             android:id="@+id/textViewLogout"
             android:layout_width="wrap_content"
