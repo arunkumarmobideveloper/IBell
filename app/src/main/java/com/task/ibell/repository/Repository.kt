@@ -5,7 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.task.ibell.R
 import com.task.ibell.data.model.ActivityListItems
+import com.task.ibell.data.model.DataConnectionListItems
 import com.task.ibell.data.model.SuggestedActivitiesLIst
+import com.task.ibell.data.model.SuggestedDataConnectionsList
 
 class Repository(private val applicationContext: Context) {
 
@@ -13,6 +15,11 @@ class Repository(private val applicationContext: Context) {
 
     val suggestedActivities: LiveData<SuggestedActivitiesLIst>
         get() = suggestedActivitiesLiveData
+
+    private val suggestedDataConnectionsLiveData = MutableLiveData<SuggestedDataConnectionsList>()
+
+    val suggestedDataConnections: LiveData<SuggestedDataConnectionsList>
+        get() = suggestedDataConnectionsLiveData
 
     suspend fun getActivitiesSuggestionList() {
 
@@ -68,4 +75,94 @@ class Repository(private val applicationContext: Context) {
         val activityList = SuggestedActivitiesLIst(suggestionsList)
         suggestedActivitiesLiveData.postValue(activityList)
     }
+
+    suspend fun getDataConnectionsList() {
+
+        val suggestionsList = mutableListOf<DataConnectionListItems>()
+
+        // Category A
+        suggestionsList.add(
+            DataConnectionListItems(
+                "Absolute Total Care", R.drawable.circle
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "Advantage by Superior HealthPlan (Ambetter)", R.drawable.plus_icon
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "Aetna (Medicaid and Medicare Only)", R.drawable.ic_placeholder
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "Affinity by Molina HealthCare", R.drawable.vaccine_icon
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "Agewell New York", R.drawable.circle
+            )
+        )
+
+        // Category B
+        suggestionsList.add(
+            DataConnectionListItems(
+                "BCBS Minnesota", R.drawable.vaccine_icon
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "BCBS of Alabama", R.drawable.circle
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "BCBS of Arizona", R.drawable.vaccine_icon
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "BCBS of Iowa (Wellmark)", R.drawable.circle
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "BCBS of Kansas", R.drawable.vaccine_icon
+            )
+        )
+
+        // Category C
+        suggestionsList.add(
+            DataConnectionListItems(
+                "California Health and Wellness", R.drawable.circle
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "CalViva Health", R.drawable.vaccine_icon
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "Capital Health Plan", R.drawable.circle
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "Care N' Care", R.drawable.vaccine_icon
+            )
+        )
+        suggestionsList.add(
+            DataConnectionListItems(
+                "Care1st Health Plan Arizona", R.drawable.circle
+            )
+        )
+
+        val activityList = SuggestedDataConnectionsList(suggestionsList)
+        suggestedDataConnectionsLiveData.postValue(activityList)
+    }
+
 }

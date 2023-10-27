@@ -67,6 +67,7 @@
     <string name="age">Age</string>
     <string name="address">Address</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="create_profile">Create Profile</string>
     <string name="logout">Log out</string>
     <string name="connect_insurance">Connect Insurance</string>
     <string name="connection_benefits">One Connection, Many benefits</string>

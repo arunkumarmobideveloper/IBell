@@ -75,6 +75,7 @@ class ProfileFragment : Fragment() {
         editButton.setOnClickListener {
             binding.includeViewProfile.viewProfileParent.visibility= View.GONE;
             binding.includeEditProfile.editProfileParent.visibility= View.VISIBLE;
+            binding.includeEditProfile.editProfileTitleTextView.text= resources.getString(R.string.edit_profile);
             userData.let {
                 binding.includeEditProfile.firstNameEditText.setText(it.firstName)
                 binding.includeEditProfile.lastNameEditText.setText(it.lastName)
@@ -82,7 +83,7 @@ class ProfileFragment : Fragment() {
                 binding.includeEditProfile.phonenumberEditText.setText(it.mobileNumber)
                 binding.includeEditProfile.primaryAddressEditText.setText(it.primaryAddress)
                 binding.includeEditProfile.cityEditText.setText(it.city)
-                    binding.includeEditProfile.zipcodeEditText.setText(it.zipcode)
+                binding.includeEditProfile.zipcodeEditText.setText(it.zipcode)
             }
 
         }
@@ -141,6 +142,7 @@ class ProfileFragment : Fragment() {
         if (userData == null) {
             binding.includeViewProfile.viewProfileParent.visibility= View.GONE;
             binding.includeEditProfile.editProfileParent.visibility= View.VISIBLE;
+            binding.includeEditProfile.editProfileTitleTextView.text= resources.getString(R.string.create_profile);
         }else{
             binding.includeViewProfile.viewProfileParent.visibility= View.VISIBLE;
             binding.includeEditProfile.editProfileParent.visibility= View.GONE;

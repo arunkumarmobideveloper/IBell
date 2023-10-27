@@ -4,10 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.task.ibell.BWellSampleApplication
+import com.task.ibell.data.model.DataConnectionListItems
 import com.task.ibell.databinding.FragmentDataConnectionsBinding
+import com.task.ibell.viewmodel.DataConnectionsModelFactory
+import com.task.ibell.viewmodel.DataConnectionsViewModel
 
 class DataConnectionsFragment : Fragment() {
 
@@ -22,15 +26,13 @@ class DataConnectionsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(DataConnectionsViewModel::class.java)
-
         _binding = FragmentDataConnectionsBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val repository = (activity?.application as? BWellSampleApplication)?.bWellRepository
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        val mainViewModel = ViewModelProvider(this, DataConnectionsModelFactory(repository))[DataConnectionsViewModel::class.java]
+        mainViewModel.suggestedDataConnections.observe(viewLifecycleOwner) {
+            setAdapter(it.suggestedDataConnectionsList)
         }
         return root
     }
@@ -38,5 +40,11 @@ class DataConnectionsFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setAdapter(suggestedActivitiesLIst: List<DataConnectionListItems>) {
+        val adapter = DataConnectionsListAdapter(suggestedActivitiesLIst)
+        binding.rvSuggestedDataConnections.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvSuggestedDataConnections.adapter = adapter
     }
 }

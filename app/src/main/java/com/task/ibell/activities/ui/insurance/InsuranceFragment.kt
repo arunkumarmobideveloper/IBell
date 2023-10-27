@@ -1,38 +1,46 @@
 package com.task.ibell.activities.ui.insurance
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.task.ibell.R
+import com.task.ibell.databinding.FragmentInsuranceViewBinding
 
-class InsuranceFragment : Fragment() {
+class InsuranceFragment : Fragment(), View.OnClickListener {
 
-    companion object {
-        fun newInstance() = InsuranceFragment()
-    }
+    private var _binding: FragmentInsuranceViewBinding? = null
 
-    private lateinit var viewModel: InsuranceViewModel
+    private val binding get() = _binding!!
+    private lateinit var insuranceViewModel: InsuranceViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val root = inflater.inflate(R.layout.fragment_insurance_view, container, false)
-        val connectInsurance: FrameLayout = root.findViewById(R.id.frameLayoutConnectInsurance)
-        connectInsurance.setOnClickListener {
+    ): View {
+        _binding = FragmentInsuranceViewBinding.inflate(inflater, container, false)
+        val root: View = binding.root
 
+        insuranceViewModel  = ViewModelProvider(this).get(InsuranceViewModel::class.java)
+        //use the view model
+
+        binding.frameLayoutConnectInsurance.setOnClickListener(this)
+
+        return root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onClick(view: View?) {
+        when (view?.id) {
+            R.id.frameLayoutConnectInsurance -> findNavController().navigate(R.id.nav_data_connections)
         }
-        return root;
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(InsuranceViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
