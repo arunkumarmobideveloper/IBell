@@ -1,5 +1,6 @@
 package com.task.ibell.activities.ui.profile
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,6 +25,7 @@ class ProfileFragment : Fragment() {
     private var selected_state = "Alabama"
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -73,16 +75,14 @@ class ProfileFragment : Fragment() {
         editButton.setOnClickListener {
             binding.includeViewProfile.viewProfileParent.visibility= View.GONE;
             binding.includeEditProfile.editProfileParent.visibility= View.VISIBLE;
-            userData?.let {
-                binding.includeEditProfile.firstNameEditText.setText("${it.firstName}")
-                binding.includeEditProfile.lastNameEditText.setText("${it.lastName} ")
-                binding.includeEditProfile.dateofbirthEditText.setText("${it.dateOfBirth}")
-                //binding.includeEditProfile.sex.text= "${it.sexAssignedAtBirth}"
-                binding.includeEditProfile.phonenumberEditText.setText("${it.mobileNumber}")
-                binding.includeEditProfile.primaryAddressEditText.setText("${it.primaryAddress}")
-                binding.includeEditProfile.cityEditText.setText("${it.city}")
-                //binding.includeEditProfile.textViewAddressData.text= "${it.primaryAddress}"
-                binding.includeEditProfile.zipcodeEditText.setText("${it.zipcode}")
+            userData.let {
+                binding.includeEditProfile.firstNameEditText.setText(it.firstName)
+                binding.includeEditProfile.lastNameEditText.setText(it.lastName)
+                binding.includeEditProfile.dateofbirthEditText.setText(it.dateOfBirth)
+                binding.includeEditProfile.phonenumberEditText.setText(it.mobileNumber)
+                binding.includeEditProfile.primaryAddressEditText.setText(it.primaryAddress)
+                binding.includeEditProfile.cityEditText.setText(it.city)
+                    binding.includeEditProfile.zipcodeEditText.setText(it.zipcode)
             }
 
         }
@@ -135,6 +135,7 @@ class ProfileFragment : Fragment() {
         _binding = null
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateUI(userData: UserData?) {
         // Update UI components with userData
         if (userData == null) {
@@ -143,15 +144,15 @@ class ProfileFragment : Fragment() {
         }else{
             binding.includeViewProfile.viewProfileParent.visibility= View.VISIBLE;
             binding.includeEditProfile.editProfileParent.visibility= View.GONE;
-            userData?.let {
+            userData.let {
                 binding.includeViewProfile.textViewName.text= "${it.firstName} ${it.lastName}"
                 binding.includeViewProfile.textViewIntialLetter.text= "${it.firstName.firstOrNull()} "
-                binding.includeViewProfile.textViewEmailData.text= "${it.email}"
-                binding.includeViewProfile.textViewSexData.text= "${it.sexAssignedAtBirth}"
-                binding.includeViewProfile.textViewPhoneNumberData.text= "${it.mobileNumber}"
-                binding.includeViewProfile.textViewDateOfBirthData.text= "${it.dateOfBirth}"
-                binding.includeViewProfile.textViewAgeData.text= "${it.age}"
-                binding.includeViewProfile.textViewAddressData.text= "${it.primaryAddress}"
+                binding.includeViewProfile.textViewEmailData.text= it.email
+                binding.includeViewProfile.textViewSexData.text= it.sexAssignedAtBirth
+                binding.includeViewProfile.textViewPhoneNumberData.text= it.mobileNumber
+                binding.includeViewProfile.textViewDateOfBirthData.text= it.dateOfBirth
+                binding.includeViewProfile.textViewAgeData.text= it.age
+                binding.includeViewProfile.textViewAddressData.text= it.primaryAddress
             }
         }
     }

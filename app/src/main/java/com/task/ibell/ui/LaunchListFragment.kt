@@ -10,8 +10,6 @@ import androidx.lifecycle.lifecycleScope
 
 import androidx.recyclerview.widget.LinearLayoutManager
 
-import com.example.rocketreserver.LaunchListAdapter
-
 import com.task.ibell.LaunchListQuery
 import com.task.ibell.databinding.LaunchListFragmentBinding
 import com.task.ibell_lib_sdk.apolloclient.ApolloClientConfiguration
