@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import com.task.ibell.R
 
 class InsuranceFragment : Fragment() {
@@ -20,7 +21,12 @@ class InsuranceFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_insurance, container, false)
+        val root = inflater.inflate(R.layout.fragment_insurance_view, container, false)
+        val connectInsurance: FrameLayout = root.findViewById(R.id.frameLayoutConnectInsurance)
+        connectInsurance.setOnClickListener {
+
+        }
+        return root;
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

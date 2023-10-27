@@ -68,6 +68,8 @@
     <string name="address">Address</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="logout">Log out</string>
+    <string name="connect_insurance">Connect Insurance</string>
+    <string name="connection_benefits">One Connection, Many benefits</string>
     <string name="save">Save</string>
     <string name="fill_edit_profile">Help us provide you with more tailored insights by filling out more details about you.</string>
     <string name="first_name">First Name</string>
@@ -100,5 +102,20 @@
     <string name="get_started">Get Started</string>
     <string name="health_journey">Elevate your health journey</string>
     <string name="sub_header_home">Combine all your health records to unlock more data</string>
+    <string name="insurance_description_heading">
+    <![CDATA[
+    Enter the details of your insurance plan to \n     fill your app with your most important \n    health data, like your:
+    ]]>
+   </string>
+    <string name="insurance_description">
+    <![CDATA[
+           • Claims\n
+
+           • Payment history\n
+
+           • Out of pocket/deductible progress
+    ]]>
+</string>
+
 
 </resources>

@@ -32,7 +32,7 @@
         android:id="@+id/nav_insurance"
         android:name="com.task.ibell.activities.ui.insurance.InsuranceFragment"
         android:label="@string/menu_insurance"
-        tools:layout="@layout/fragment_insurance" />
+        tools:layout="@layout/fragment_insurance_view" />
 
     <fragment
         android:id="@+id/nav_setting"
