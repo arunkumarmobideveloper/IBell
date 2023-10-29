@@ -8,31 +8,34 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.task.ibell.BWellSampleApplication
+import com.task.ibell.data.model.DataConnectionCategoriesListItems
 import com.task.ibell.data.model.DataConnectionListItems
-import com.task.ibell.databinding.FragmentDataConnectionsBinding
+import com.task.ibell.databinding.FragmentDataConnectionsParentBinding
 import com.task.ibell.viewmodel.DataConnectionsModelFactory
 import com.task.ibell.viewmodel.DataConnectionsViewModel
 
 class DataConnectionsFragment : Fragment() {
 
-    private var _binding: FragmentDataConnectionsBinding? = null
+    private var _binding: FragmentDataConnectionsParentBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private lateinit var dataConnectionsViewModel: DataConnectionsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDataConnectionsBinding.inflate(inflater, container, false)
+        _binding = FragmentDataConnectionsParentBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val repository = (activity?.application as? BWellSampleApplication)?.bWellRepository
 
-        val mainViewModel = ViewModelProvider(this, DataConnectionsModelFactory(repository))[DataConnectionsViewModel::class.java]
-        mainViewModel.suggestedDataConnections.observe(viewLifecycleOwner) {
-            setAdapter(it.suggestedDataConnectionsList)
+        dataConnectionsViewModel = ViewModelProvider(this, DataConnectionsModelFactory(repository))[DataConnectionsViewModel::class.java]
+
+        dataConnectionsViewModel.suggestedDataConnectionsCategories.observe(viewLifecycleOwner) {
+            setDataConnectionsCategoryAdapter(it.suggestedDataConnectionsCategoriesList)
         }
         return root
     }
@@ -42,9 +45,29 @@ class DataConnectionsFragment : Fragment() {
         _binding = null
     }
 
-    private fun setAdapter(suggestedActivitiesLIst: List<DataConnectionListItems>) {
+    private fun setDataConnectionsAdapter(suggestedActivitiesLIst: List<DataConnectionListItems>) {
         val adapter = DataConnectionsListAdapter(suggestedActivitiesLIst)
-        binding.rvSuggestedDataConnections.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvSuggestedDataConnections.adapter = adapter
+        binding.includeDataConnections.dataConnectionFragment.visibility = View.VISIBLE;
+        binding.includeDataConnectionCategory.dataConnectionFragment.visibility = View.GONE;
+        binding.includeDataConnections.rvSuggestedDataConnections.layoutManager = LinearLayoutManager(requireContext())
+        binding.includeDataConnections.rvSuggestedDataConnections.adapter = adapter
+    }
+
+    private fun setDataConnectionsCategoryAdapter(suggestedActivitiesLIst: List<DataConnectionCategoriesListItems>) {
+        val adapter = DataConnectionsCategoriesListAdapter(suggestedActivitiesLIst)
+        adapter.onItemClicked = { selectedDataConnection ->
+            // Handle item click, perform UI changes here
+            displayRelatedDataConnectionsList();
+        }
+        binding.includeDataConnectionCategory.dataConnectionFragment.visibility = View.VISIBLE;
+        binding.includeDataConnections.dataConnectionFragment.visibility = View.GONE;
+        binding.includeDataConnectionCategory.rvSuggestedDataConnections.layoutManager = LinearLayoutManager(requireContext())
+        binding.includeDataConnectionCategory.rvSuggestedDataConnections.adapter = adapter
+    }
+
+    private fun displayRelatedDataConnectionsList() {
+        dataConnectionsViewModel.suggestedDataConnections.observe(viewLifecycleOwner) {
+            setDataConnectionsAdapter(it.suggestedDataConnectionsList)
+        }
     }
 }

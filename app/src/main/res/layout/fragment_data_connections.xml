@@ -1,82 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/data_connection_fragment"
+    android:layout_margin="20dp"
     tools:context=".activities.ui.data_connections.DataConnectionsFragment">
-        <!-- Title -->
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Select Insurance"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#0076AB"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"/>
 
-        <!-- Rounded Rectangle with Green Border -->
-        <RelativeLayout
-            android:id="@+id/roundedRectangle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:padding="6dp"
-            android:background="@drawable/rounded_rectangle_green_stroke"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleTextView">
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/data_connections"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#575881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"/>
 
-            <!-- Search Icon -->
-            <ImageView
-                android:id="@+id/searchIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/baseline_search_24"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="16dp"/>
+    <!-- Image -->
+    <ImageView
+        android:id="@+id/descriptionImageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/baseline_control_point_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/titleTextView"
+        android:layout_marginEnd="16dp"/>
 
-            <!-- Search Text -->
-            <EditText
-                android:id="@+id/searchText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Search..."
-                android:background="@android:color/transparent"
-                android:layout_toEndOf="@id/searchIcon"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="8dp"/>
-        </RelativeLayout>
+    <!-- Description Text View -->
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/data_connections_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/descriptionImageView"
+        app:layout_constraintTop_toBottomOf="@id/descriptionImageView"
+        android:textSize="18sp"
+        android:layout_margin="10dp"/>
 
-        <!-- Block Text View for Available Connection -->
-        <TextView
-            android:id="@+id/availableConnectionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Available Connections"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/roundedRectangle"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"/>
+    <!-- RecyclerView for Displaying Data -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_suggested_data_connections"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-        <!-- RecyclerView for Displaying Data -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_suggested_data_connections"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/availableConnectionText"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

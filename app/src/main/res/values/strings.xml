@@ -103,6 +103,10 @@
     <string name="get_started">Get Started</string>
     <string name="health_journey">Elevate your health journey</string>
     <string name="sub_header_home">Combine all your health records to unlock more data</string>
+    <string name="search_connection_by">Search connection by</string>
+    <string name="data_connections">Data Connections</string>
+    <string name="pending">Pending</string>
+    <string name="data_connections_description">Here is your list of Data Connections from your providers/medical offices,insurance,labs,pharmacies and more.</string>
     <string name="insurance_description_heading">
     <![CDATA[
     Enter the details of your insurance plan to \n     fill your app with your most important \n    health data, like your:
