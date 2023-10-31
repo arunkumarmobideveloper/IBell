@@ -11,8 +11,8 @@ import com.task.ibell.BWellSampleApplication
 import com.task.ibell.data.model.DataConnectionCategoriesListItems
 import com.task.ibell.data.model.DataConnectionListItems
 import com.task.ibell.databinding.FragmentDataConnectionsParentBinding
-import com.task.ibell.viewmodel.DataConnectionsModelFactory
 import com.task.ibell.viewmodel.DataConnectionsViewModel
+import com.task.ibell.viewmodel.SharedViewModelFactory
 
 class DataConnectionsFragment : Fragment() {
 
@@ -32,7 +32,7 @@ class DataConnectionsFragment : Fragment() {
         val root: View = binding.root
         val repository = (activity?.application as? BWellSampleApplication)?.bWellRepository
 
-        dataConnectionsViewModel = ViewModelProvider(this, DataConnectionsModelFactory(repository))[DataConnectionsViewModel::class.java]
+        dataConnectionsViewModel = ViewModelProvider(this, SharedViewModelFactory(repository))[DataConnectionsViewModel::class.java]
 
         dataConnectionsViewModel.suggestedDataConnectionsCategories.observe(viewLifecycleOwner) {
             setDataConnectionsCategoryAdapter(it.suggestedDataConnectionsCategoriesList)

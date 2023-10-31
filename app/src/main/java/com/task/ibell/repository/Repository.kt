@@ -7,6 +7,10 @@ import com.task.ibell.R
 import com.task.ibell.data.model.ActivityListItems
 import com.task.ibell.data.model.DataConnectionCategoriesListItems
 import com.task.ibell.data.model.DataConnectionListItems
+import com.task.ibell.data.model.HealthSummaryList
+import com.task.ibell.data.model.HealthSummaryListItems
+import com.task.ibell.data.model.LabsList
+import com.task.ibell.data.model.LabsListItems
 import com.task.ibell.data.model.SuggestedActivitiesLIst
 import com.task.ibell.data.model.SuggestedDataConnectionsCategoriesList
 import com.task.ibell.data.model.SuggestedDataConnectionsList
@@ -27,6 +31,16 @@ class Repository(private val applicationContext: Context) {
 
     val suggestedDataConnectionsCategories: LiveData<SuggestedDataConnectionsCategoriesList>
         get() = suggestedDataConnectionsCategoriesLiveData
+
+    private val healthSummaryLiveData = MutableLiveData<HealthSummaryList>()
+
+    val healthSummary: LiveData<HealthSummaryList>
+        get() = healthSummaryLiveData
+
+    private val labsLiveData = MutableLiveData<LabsList>()
+
+    val labs: LiveData<LabsList>
+        get() = labsLiveData
 
     suspend fun getActivitiesSuggestionList() {
 
@@ -142,6 +156,67 @@ class Repository(private val applicationContext: Context) {
 
         val activityList = SuggestedDataConnectionsList(suggestionsList)
         suggestedDataConnectionsLiveData.postValue(activityList)
+    }
+
+    suspend fun getHealthSummaryList() {
+
+        val suggestionsList = mutableListOf<HealthSummaryListItems>()
+
+        // Category A
+        suggestionsList.add(
+            HealthSummaryListItems(
+                "Care Plans (1)", R.drawable.baseline_person_24,R.drawable.baseline_keyboard_arrow_right_24
+            )
+        )
+        suggestionsList.add(
+            HealthSummaryListItems(
+                "Visit History (4)", R.drawable.baseline_person_24, R.drawable.baseline_keyboard_arrow_right_24
+            )
+        )
+        suggestionsList.add(
+            HealthSummaryListItems(
+                "Vitals (5)", R.drawable.baseline_person_24, R.drawable.baseline_keyboard_arrow_right_24
+            )
+        )
+
+        suggestionsList.add(
+            HealthSummaryListItems(
+                "Procedures (1)", R.drawable.baseline_person_24, R.drawable.baseline_keyboard_arrow_right_24
+            )
+        )
+
+        val activityList = HealthSummaryList(suggestionsList)
+        healthSummaryLiveData.postValue(activityList)
+    }
+
+    suspend fun getLabsList() {
+
+        val suggestionsList = mutableListOf<LabsListItems>()
+        // Category A
+        suggestionsList.add(
+            LabsListItems(
+                "SARS-cov+SARS-cov-2(Covid-19) Ag [Presence] in Respiratory specimen by rapid immunoassay", "26/10/2023","Detected"
+            )
+        )
+        suggestionsList.add(
+            LabsListItems(
+                "Blood Group", "26/10/2023","Group AB"
+            )
+        )
+        suggestionsList.add(
+            LabsListItems(
+                "Rh in Blood", "26/10/2023","Positive"
+            )
+        )
+
+        suggestionsList.add(
+            LabsListItems(
+                "UROBILINOGEN", "26/10/2023","0.3 mg/dl"
+            )
+        )
+
+        val activityList = LabsList(suggestionsList)
+        labsLiveData.postValue(activityList)
     }
 
 

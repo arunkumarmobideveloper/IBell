@@ -7,7 +7,14 @@
     android:id="@+id/data_connection_fragment"
     tools:context=".activities.ui.data_connections.DataConnectionsFragment">
 
-        <!-- Title -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
@@ -16,18 +23,17 @@
             android:textSize="20sp"
             android:textStyle="bold"
             android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginBottom="16dp"/>
+            android:textColor="#575881"
+            android:layout_marginBottom="10dp"/>
 
-        <!-- RecyclerView for Displaying Data -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_suggested_data_connections"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/titleTextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_height="0dp"
+            android:layout_weight="0.8"/>
+    </LinearLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

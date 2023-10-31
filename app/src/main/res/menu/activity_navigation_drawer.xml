@@ -31,8 +31,8 @@
             android:icon="@drawable/icon_hurt_summary"
             android:title="@string/menu_profile" />
         <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/icon_setting"
-            android:title="@string/menu_settings" />
+            android:id="@+id/nav_labs"
+            android:icon="@drawable/icon_labs"
+            android:title="@string/menu_labs" />
     </group>
 </menu>

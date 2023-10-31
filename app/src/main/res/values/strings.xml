@@ -49,6 +49,7 @@
     <string name="menu_health_summary">Health Summary</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_settings">Settings</string>
+    <string name="menu_labs">Labs</string>
     <string name="title_activity_navigation">NavigationActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -105,8 +106,13 @@
     <string name="sub_header_home">Combine all your health records to unlock more data</string>
     <string name="search_connection_by">Search connection by</string>
     <string name="data_connections">Data Connections</string>
+    <string name="health_summary">Health Summary</string>
+    <string name="labs">Labs</string>
+    <string name="lab_detail">Lab Detail</string>
     <string name="pending">Pending</string>
     <string name="data_connections_description">Here is your list of Data Connections from your providers/medical offices,insurance,labs,pharmacies and more.</string>
+    <string name="health_summary_description">Here is your list of connected health information grouped by record type.</string>
+    <string name="about_helath_type_desc">A urobilinogen in urine test measures the amount of urobilinogen in your urine (pee). Normal urine contains some urobilinogen. Too much urobilinogen in urine may be a sign of a liver disease, such as hepatitis or cirrhosis, or certain types of anemia.</string>
     <string name="insurance_description_heading">
     <![CDATA[
     Enter the details of your insurance plan to \n     fill your app with your most important \n    health data, like your:
@@ -120,6 +126,9 @@
 
            • Out of pocket/deductible progress
     ]]>
+</string>
+    <string name="history_description">
+    <![CDATA[ 31/10/2023 \n   \n 0.3 mg/dl \n  \n Healthy Range \n  0.1 mg/dl-1.0 mg/dl \n   \n from Memorial health]]>
 </string>
 
 
