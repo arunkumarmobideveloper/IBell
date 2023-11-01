@@ -1,32 +1,54 @@
 package com.task.ibell.activities.ui.health_journey
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.task.ibell.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.task.ibell.BWellSampleApplication
+import com.task.ibell.data.model.HealthJourneyListItems
+import com.task.ibell.databinding.FragmentHealthJourneyBinding
+import com.task.ibell.viewmodel.HealthJourneyViewModel
+import com.task.ibell.viewmodel.SharedViewModelFactory
 
 class HealthJourneyFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = HealthJourneyFragment()
-    }
+    private var _binding: FragmentHealthJourneyBinding? = null
 
-    private lateinit var viewModel: HealthJourneyViewModel
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+    private lateinit var healthJourneyViewModel: HealthJourneyViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_health_journey, container, false)
+    ): View {
+        _binding = FragmentHealthJourneyBinding.inflate(inflater, container, false)
+        val root: View = binding.root
+        val repository = (activity?.application as? BWellSampleApplication)?.bWellRepository
+
+        healthJourneyViewModel = ViewModelProvider(this, SharedViewModelFactory(repository))[HealthJourneyViewModel::class.java]
+
+        healthJourneyViewModel.healthJourneyData.observe(viewLifecycleOwner) {
+            setAdapter(it.healthJourneyList)
+        }
+
+
+        return root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HealthJourneyViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun setAdapter(suggestedActivitiesLIst: List<HealthJourneyListItems>) {
+        val adapter = HealthJourneyListAdapter(suggestedActivitiesLIst)
+        binding.rvHealthJourney.layoutManager = LinearLayoutManager(requireContext())
+        binding.rvHealthJourney.adapter = adapter
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

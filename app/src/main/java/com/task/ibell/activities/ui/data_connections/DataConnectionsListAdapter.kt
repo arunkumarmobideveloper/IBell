@@ -32,10 +32,10 @@ class DataConnectionsListAdapter(private val launches: List<DataConnectionListIt
         val launch = launches[position]
         holder.binding.header.text = launch.connectionName?: ""
         holder.binding.textViewStatus.text = launch.status?: ""
-        holder.binding.changeStatusIv.load(launch.status_change_logo) {
+        holder.binding.changeStatusIv.load(launch.statusChangeLogo) {
             placeholder(R.drawable.insurance_logo)
         }
-        holder.binding.icon.load(launch.connection_logo) {
+        holder.binding.icon.load(launch.connectionLogo) {
             placeholder(R.drawable.baseline_person_pin_24)
         }
 

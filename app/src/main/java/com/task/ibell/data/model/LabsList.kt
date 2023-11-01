@@ -4,4 +4,4 @@ data class LabsList(
     val labsList :List<LabsListItems>
 )
 
-data class LabsListItems(val labs_type: String,val labs_date: String,val labs_status: String)
+data class LabsListItems(val labsType: String,val labsDate: String,val labsStatus: String)

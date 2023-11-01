@@ -4,5 +4,5 @@ data class HealthSummaryList(
     val healthSummaryList :List<HealthSummaryListItems>
 )
 
-data class HealthSummaryListItems(val health_summary_type: String,
-                                   val health_summary_type_logo: Int,val health_summary_details_logo: Int)
+data class HealthSummaryListItems(val healthSummaryType: String,
+                                   val healthSummaryTypeLogo: Int,val healthSummaryDetailsLogo: Int)

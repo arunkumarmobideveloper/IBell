@@ -5,11 +5,11 @@ data class SuggestedDataConnectionsList(
 )
 
 data class DataConnectionListItems(val connectionName: String,
-                             val connection_logo: Int,val status: String,val status_change_logo: Int)
+                             val connectionLogo: Int,val status: String,val statusChangeLogo: Int)
 
 data class SuggestedDataConnectionsCategoriesList(
     val suggestedDataConnectionsCategoriesList :List<DataConnectionCategoriesListItems>
 )
 
 data class DataConnectionCategoriesListItems(val connectionCategoryName: String,
-                                   val connection_logo: Int,val description: String)
+                                   val connectionLogo: Int,val description: String)

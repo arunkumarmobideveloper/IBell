@@ -7,6 +7,8 @@ import com.task.ibell.R
 import com.task.ibell.data.model.ActivityListItems
 import com.task.ibell.data.model.DataConnectionCategoriesListItems
 import com.task.ibell.data.model.DataConnectionListItems
+import com.task.ibell.data.model.HealthJourneyList
+import com.task.ibell.data.model.HealthJourneyListItems
 import com.task.ibell.data.model.HealthSummaryList
 import com.task.ibell.data.model.HealthSummaryListItems
 import com.task.ibell.data.model.LabsList
@@ -41,6 +43,11 @@ class Repository(private val applicationContext: Context) {
 
     val labs: LiveData<LabsList>
         get() = labsLiveData
+
+    private val healthJourneyLiveData = MutableLiveData<HealthJourneyList>()
+
+    val healthJourney: LiveData<HealthJourneyList>
+        get() = healthJourneyLiveData
 
     suspend fun getActivitiesSuggestionList() {
 
@@ -217,6 +224,40 @@ class Repository(private val applicationContext: Context) {
 
         val activityList = LabsList(suggestionsList)
         labsLiveData.postValue(activityList)
+    }
+
+    suspend fun getHealthJourneyList() {
+
+        val suggestionsList = mutableListOf<HealthJourneyListItems>()
+
+        // Category A
+        suggestionsList.add(
+            HealthJourneyListItems(
+                "Connect Your Care Providers", R.drawable.vaccine_icon,
+                "Get all your health data from different provider portals in one place" ,R.drawable.baseline_keyboard_arrow_right_24
+            )
+        )
+        suggestionsList.add(
+            HealthJourneyListItems(
+                "Build Your Care Team", R.drawable.circle,
+                "Keep a list of all the providers you've seen",R.drawable.baseline_keyboard_arrow_right_24
+            )
+        )
+        suggestionsList.add(
+            HealthJourneyListItems(
+                "Find a Primary Care Provider You Can Trust", R.drawable.plus_icon,
+                "A primary care provider is a partner in your health",R.drawable.baseline_keyboard_arrow_right_24
+            )
+        )
+        suggestionsList.add(
+            HealthJourneyListItems(
+                "Live a Heart Healthy Lifestyle", R.drawable.ic_placeholder,
+                "Habits to build into your everyday life to keep your heart and blood vessels healthy",R.drawable.baseline_keyboard_arrow_right_24
+            )
+        )
+
+        val activityList = HealthJourneyList(suggestionsList)
+        healthJourneyLiveData.postValue(activityList)
     }
 
 

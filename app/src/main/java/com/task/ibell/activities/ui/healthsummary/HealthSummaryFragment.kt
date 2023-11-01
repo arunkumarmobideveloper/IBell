@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.task.ibell.BWellSampleApplication
-import com.task.ibell.activities.ui.labs.HealthSummaryListAdapter
 import com.task.ibell.data.model.HealthSummaryListItems
 import com.task.ibell.databinding.FragmentHealthSummaryBinding
 import com.task.ibell.viewmodel.HealthSummaryViewModel

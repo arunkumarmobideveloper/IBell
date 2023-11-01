@@ -108,6 +108,8 @@
     <string name="search_connection_by">Search connection by</string>
     <string name="data_connections">Data Connections</string>
     <string name="health_summary">Health Summary</string>
+    <string name="health_journey_title">Health Journey</string>
+    <string name="health_activities">Health Activities</string>
     <string name="labs">Labs</string>
     <string name="lab_detail">Lab Detail</string>
     <string name="pending">Pending</string>

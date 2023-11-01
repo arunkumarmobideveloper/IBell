@@ -22,6 +22,9 @@ class SharedViewModelFactory(private val repository: Repository?) : ViewModelPro
             modelClass.isAssignableFrom(MedicinesViewModel::class.java) -> {
                 MedicinesViewModel(repository) as T
             }
+            modelClass.isAssignableFrom(HealthJourneyViewModel::class.java) -> {
+                HealthJourneyViewModel(repository) as T
+            }
             // Add more ViewModel classes as needed
             else -> throw IllegalArgumentException("Unknown ViewModel class")
         }

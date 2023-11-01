@@ -28,9 +28,9 @@ class LabsListAdapter(private val launches: List<LabsListItems>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val launch = launches[position]
-        holder.binding.header.text = launch.labs_type?: ""
-        holder.binding.textViewDate.text = launch.labs_date?: ""
-        holder.binding.textViewStatus.text = launch.labs_status?: ""
+        holder.binding.header.text = launch.labsType?: ""
+        holder.binding.textViewDate.text = launch.labsDate?: ""
+        holder.binding.textViewStatus.text = launch.labsStatus?: ""
 
         if (position == launches.size - 1) {
             onEndOfListReached?.invoke()

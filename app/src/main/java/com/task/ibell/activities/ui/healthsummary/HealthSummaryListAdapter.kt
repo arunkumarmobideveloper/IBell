@@ -1,4 +1,4 @@
-package com.task.ibell.activities.ui.labs
+package com.task.ibell.activities.ui.healthsummary
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -30,11 +30,11 @@ class HealthSummaryListAdapter(private val launches: List<HealthSummaryListItems
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val launch = launches[position]
-        holder.binding.itemText.text = launch.health_summary_type?: ""
-        holder.binding.itemLogo.load(launch.health_summary_type_logo) {
+        holder.binding.itemText.text = launch.healthSummaryType?: ""
+        holder.binding.itemLogo.load(launch.healthSummaryTypeLogo) {
             placeholder(R.drawable.baseline_person_24)
         }
-        holder.binding.itemDetailsLogo.load(launch.health_summary_details_logo) {
+        holder.binding.itemDetailsLogo.load(launch.healthSummaryDetailsLogo) {
             placeholder(R.drawable.baseline_keyboard_arrow_right_24)
         }
 

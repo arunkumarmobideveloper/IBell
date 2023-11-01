@@ -33,7 +33,7 @@ class DataConnectionsCategoriesListAdapter(private val launches: List<DataConnec
         val launch = launches[position]
         holder.binding.dataConnectionHeadingTv.text = launch.connectionCategoryName?: ""
         holder.binding.dataConnectionDescriptionIv.text = launch.description?: ""
-        holder.binding.dataConnectionLogoIv.load(launch.connection_logo) {
+        holder.binding.dataConnectionLogoIv.load(launch.connectionLogo) {
             placeholder(R.drawable.insurance_logo)
         }
 
