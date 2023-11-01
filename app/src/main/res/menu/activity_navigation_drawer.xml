@@ -34,5 +34,9 @@
             android:id="@+id/nav_labs"
             android:icon="@drawable/icon_labs"
             android:title="@string/menu_labs" />
+        <item
+            android:id="@+id/nav_medicines"
+            android:icon="@drawable/medicine_logo"
+            android:title="@string/menu_medicines" />
     </group>
 </menu>
