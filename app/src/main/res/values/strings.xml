@@ -114,7 +114,12 @@
     <string name="lab_detail">Lab Detail</string>
     <string name="pending">Pending</string>
     <string name="connect_health_records">Connect your health records</string>
-    <string name="lets_go">Let&apos;s go!</string>
+    <string name="lets_go">Let\'s go!</string>
+    <string name="search_clinics">Search Clinics, Hospitals and Health Systems</string>
+    <string name="contact_us">Contact us</string>
+    <string name="before_search_clinics_body_txt">Search by clinic, hospital, or health system name where your healthcare provider works, not by your provider’s name.</string>
+    <string name="after_search_clinics_no_data_body_txt">We didn’t find any matches for this search. Please try another clinic, hospital or health system name, and city/state.</string>
+    <string name="after_search_clinics_data_body_txt">Search by clinic/medical office name, hospital name, health system name, or city/state.</string>
     <string name="connect_health_records_sub_txt">See your health records in one place by securely connecting your health information held by your insurance and providers.</string>
     <string name="data_connections_description">Here is your list of Data Connections from your providers/medical offices,insurance,labs,pharmacies and more.</string>
     <string name="health_summary_description">Here is your list of connected health information grouped by record type.</string>
