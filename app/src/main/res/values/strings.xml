@@ -71,8 +71,10 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="create_profile">Create Profile</string>
     <string name="logout">Log out</string>
+    <string name="proceed">Proceed</string>
     <string name="connect_insurance">Connect Insurance</string>
     <string name="connection_benefits">One Connection, Many benefits</string>
+    <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="fill_edit_profile">Help us provide you with more tailored insights by filling out more details about you.</string>
     <string name="first_name">First Name</string>
@@ -117,7 +119,12 @@
     <string name="lets_go">Let\'s go!</string>
     <string name="search_clinics">Search Clinics, Hospitals and Health Systems</string>
     <string name="contact_us">Contact us</string>
+    <string name="connect_to">Connect to </string>
+    <string name="clinic_discription"> <![CDATA[
+     will ask for your credentials and consent for b.well to retrieve your data. b.well follows the Lee Health Connect Privacy Policy and Terms of Service.
+     \n   \n NOTE: Please turn off your browser\'s popup blocker in order to proceed and complete the data sync. ]]></string>
     <string name="before_search_clinics_body_txt">Search by clinic, hospital, or health system name where your healthcare provider works, not by your provider’s name.</string>
+    <string name="clinic_checkbox_txt">I attest that these are my credentials and i authorize b.well to retrive my health data for my use in Lee Health Connect</string>
     <string name="after_search_clinics_no_data_body_txt">We didn’t find any matches for this search. Please try another clinic, hospital or health system name, and city/state.</string>
     <string name="after_search_clinics_data_body_txt">Search by clinic/medical office name, hospital name, health system name, or city/state.</string>
     <string name="connect_health_records_sub_txt">See your health records in one place by securely connecting your health information held by your insurance and providers.</string>

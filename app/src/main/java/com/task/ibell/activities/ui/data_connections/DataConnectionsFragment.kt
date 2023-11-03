@@ -6,11 +6,13 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.task.ibell.BWellSampleApplication
 import com.task.ibell.R
+import com.task.ibell.activities.ui.popup.PopupFragment
 import com.task.ibell.data.model.DataConnectionCategoriesListItems
 import com.task.ibell.data.model.DataConnectionListItems
 import com.task.ibell.data.model.DataConnectionsClinicsListItems
@@ -18,7 +20,7 @@ import com.task.ibell.databinding.FragmentDataConnectionsParentBinding
 import com.task.ibell.viewmodel.DataConnectionsViewModel
 import com.task.ibell.viewmodel.SharedViewModelFactory
 
-class DataConnectionsFragment : Fragment(), View.OnClickListener {
+class DataConnectionsFragment : Fragment(), View.OnClickListener, PopupFragment.PopupListener {
 
     private var _binding: FragmentDataConnectionsParentBinding? = null
 
@@ -42,6 +44,19 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener {
         binding.includeHomeView.subText.setText(resources.getString(R.string.connect_health_records_sub_txt))
         binding.includeHomeView.btnGetStarted.setText(resources.getString(R.string.lets_go))
         binding.includeHomeView.btnGetStarted.setOnClickListener(this)
+        binding.clinicInfoView.cancelTxt.setOnClickListener(this)
+
+        binding.clinicInfoView.checkbox.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_rectangle_green)
+                binding.clinicInfoView.frameLayoutProceed.background = drawable
+                binding.clinicInfoView.frameLayoutProceed.setOnClickListener(this)
+            } else {
+                val drawable = ContextCompat.getDrawable(requireContext(), R.drawable.rounded_rectangle_grey)
+                binding.clinicInfoView.frameLayoutProceed.background = drawable
+                binding.clinicInfoView.frameLayoutProceed.setOnClickListener(null)
+            }
+        }
 
         // Add a TextWatcher to the searchText EditText
         binding.includeDataConnectionsClinics.searchView.searchText.addTextChangedListener(object : TextWatcher {
@@ -74,6 +89,14 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener {
 
     private fun setDataConnectionClinicsAdapter(dataConnectionsList: List<DataConnectionsClinicsListItems>) {
         val adapter = DataConnectionsClinicsListAdapter(dataConnectionsList)
+        adapter.onItemClicked = { selectedDataConnection ->
+            // Handle item click, perform UI changes here
+            binding.includeDataConnectionsClinics.searchView.searchText.setText("")
+            displayIndividualClinicInfo()
+            binding.clinicInfoView.clinicNametxt.setText(resources.getString(R.string.connect_to)+" "+selectedDataConnection.clinicName)
+            binding.clinicInfoView.clinicDiscriptionTxt.setText(selectedDataConnection.clinicName+" "+resources.getString(R.string.clinic_discription))
+
+        }
         binding.includeDataConnectionsClinics.clinicsAfterSearchDataBodyView.rvClinics.layoutManager = LinearLayoutManager(requireContext())
         binding.includeDataConnectionsClinics.clinicsAfterSearchDataBodyView.rvClinics.adapter = adapter
 
@@ -110,12 +133,25 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener {
         binding.includeDataConnectionCategory.rvSuggestedDataConnections.adapter = adapter
     }
 
+    private fun displayIndividualClinicInfo() {
+        binding.includeDataConnectionCategory.dataConnectionFragment.visibility = View.GONE;
+        binding.includeDataConnectionsClinics.dataConnectionsClinics.visibility = View.GONE;
+        binding.clinicInfoView.clinicInfoView.visibility = View.VISIBLE;
+    }
+
+    private fun displayDataConnectionsCategoriesList() {
+        binding.includeDataConnectionCategory.dataConnectionFragment.visibility = View.VISIBLE;
+        binding.includeDataConnectionsClinics.dataConnectionsClinics.visibility = View.GONE;
+        binding.clinicInfoView.clinicInfoView.visibility = View.GONE;
+    }
+
     private fun displayClinicsBeforeSearchView() {
         binding.includeDataConnectionCategory.dataConnectionFragment.visibility = View.GONE;
         binding.includeDataConnectionsClinics.dataConnectionsClinics.visibility = View.VISIBLE;
         binding.includeDataConnectionsClinics.clinicsBeforeSearchBodyView.clinicsBeforeSearchBodyView.visibility = View.VISIBLE;
         binding.includeDataConnectionsClinics.clinicsAfterSearchNoDataBodyView.clinicsAfterSearchNoDataBodyView.visibility = View.GONE;
         binding.includeDataConnectionsClinics.clinicsAfterSearchDataBodyView.clinicsAfterSearchDataBodyView.visibility = View.GONE;
+        binding.clinicInfoView.clinicInfoView.visibility = View.GONE;
     }
 
     private fun displayClinicsAfterNoDataSearchView() {
@@ -124,6 +160,7 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener {
         binding.includeDataConnectionsClinics.clinicsBeforeSearchBodyView.clinicsBeforeSearchBodyView.visibility = View.GONE;
         binding.includeDataConnectionsClinics.clinicsAfterSearchNoDataBodyView.clinicsAfterSearchNoDataBodyView.visibility = View.VISIBLE;
         binding.includeDataConnectionsClinics.clinicsAfterSearchDataBodyView.clinicsAfterSearchDataBodyView.visibility = View.GONE;
+        binding.clinicInfoView.clinicInfoView.visibility = View.GONE;
     }
 
     private fun displayClinicsAfterDataSearchView(resultCount:Int) {
@@ -133,6 +170,7 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener {
         binding.includeDataConnectionsClinics.clinicsAfterSearchNoDataBodyView.clinicsAfterSearchNoDataBodyView.visibility = View.GONE;
         binding.includeDataConnectionsClinics.clinicsAfterSearchDataBodyView.clinicsAfterSearchDataBodyView.visibility = View.VISIBLE;
         binding.includeDataConnectionsClinics.clinicsAfterSearchDataBodyView.resultsText.setText("Results ("+resultCount+")");
+        binding.clinicInfoView.clinicInfoView.visibility = View.GONE;
     }
 
     private fun displayRelatedDataConnectionsList() {
@@ -150,6 +188,21 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener {
                         setDataConnectionsCategoryAdapter(it.suggestedDataConnectionsCategoriesList)
                     }
             }
+            R.id.cancel_txt -> {
+                displayDataConnectionsCategoriesList()
+            }
+            R.id.frameLayoutProceed -> {
+                val popupFragment = PopupFragment()
+                popupFragment.setPopupListener(this) // Set the listener
+                popupFragment.show(childFragmentManager, "popup")
+            }
         }
+    }
+
+     override fun onCloseButtonClicked() {
+        // Do the action you want when the close button is clicked in the popup
+        // For example, perform some action in YourFragment
+        // You can access the views or methods of YourFragment here
+         displayDataConnectionsCategoriesList()
     }
 }
