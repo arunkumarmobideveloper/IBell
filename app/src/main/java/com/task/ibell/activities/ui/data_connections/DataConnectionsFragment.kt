@@ -58,26 +58,7 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener, PopupFragment.
             }
         }
 
-        // Add a TextWatcher to the searchText EditText
-        binding.includeDataConnectionsClinics.searchView.searchText.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(charSequence: CharSequence?, start: Int, before: Int, count: Int) {
-                // Update the filtered list when text changes
-                val numberOfCharacters = charSequence?.length ?: 0
-                if(numberOfCharacters > 2)
-                {
-                    dataConnectionsViewModel.filterDataConnectionsClinics(charSequence.toString())
-                    dataConnectionsViewModel.dataConnectionsClinics.observe(viewLifecycleOwner) {
-                        setDataConnectionClinicsAdapter(it.dataConnectionsClinicsList)
-                    }
-                }else{
-                    displayClinicsBeforeSearchView()
-                }
-            }
-
-            override fun afterTextChanged(editable: Editable?) {}
-        })
+        displayDataConnectionsHomeInfo()
 
         return root
     }
@@ -125,7 +106,9 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener, PopupFragment.
         adapter.onItemClicked = { selectedDataConnection ->
             // Handle item click, perform UI changes here
             //displayRelatedDataConnectionsList();
+            binding.includeDataConnectionsClinics.searchView.searchText.setText("")
             displayClinicsBeforeSearchView()
+            addSearchTextListeners()
         }
         binding.includeDataConnectionCategory.dataConnectionFragment.visibility = View.VISIBLE;
         binding.includeDataConnections.dataConnectionFragment.visibility = View.GONE;
@@ -133,10 +116,41 @@ class DataConnectionsFragment : Fragment(), View.OnClickListener, PopupFragment.
         binding.includeDataConnectionCategory.rvSuggestedDataConnections.adapter = adapter
     }
 
+    private fun addSearchTextListeners() {
+        // Add a TextWatcher to the searchText EditText
+        binding.includeDataConnectionsClinics.searchView.searchText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(charSequence: CharSequence?, start: Int, before: Int, count: Int) {
+                // Update the filtered list when text changes
+                val numberOfCharacters = charSequence?.length ?: 0
+                if(numberOfCharacters > 2)
+                {
+                    dataConnectionsViewModel.filterDataConnectionsClinics(charSequence.toString())
+                    dataConnectionsViewModel.dataConnectionsClinics.observe(viewLifecycleOwner) {
+                        setDataConnectionClinicsAdapter(it.dataConnectionsClinicsList)
+                    }
+                }else{
+                    if (charSequence?.isNotEmpty() == true)
+                        displayClinicsBeforeSearchView()
+                }
+            }
+
+            override fun afterTextChanged(editable: Editable?) {}
+        })
+    }
+
     private fun displayIndividualClinicInfo() {
         binding.includeDataConnectionCategory.dataConnectionFragment.visibility = View.GONE;
         binding.includeDataConnectionsClinics.dataConnectionsClinics.visibility = View.GONE;
         binding.clinicInfoView.clinicInfoView.visibility = View.VISIBLE;
+    }
+
+    private fun displayDataConnectionsHomeInfo() {
+        binding.includeDataConnectionCategory.dataConnectionFragment.visibility = View.GONE;
+        binding.includeDataConnectionsClinics.dataConnectionsClinics.visibility = View.GONE;
+        binding.clinicInfoView.clinicInfoView.visibility = View.GONE;
+        binding.includeHomeView.headerView.visibility = View.VISIBLE;
     }
 
     private fun displayDataConnectionsCategoriesList() {
